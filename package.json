@@ -1,6 +1,6 @@
 {
   "name": "@atis/lib-central-domain",
-  "version": "3.0.10",
+  "version": "3.0.11",
   "description": "Core package for shared domains which means central.",
   "author": {
     "name": "Adriano Ferreira",
@@ -14,7 +14,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prepublish": "rm -Rf dist/* | grunt",
+    "prepublish": "rm -Rf dist/* | tsc",
     "postpublish": "git push origin develop"
   }
 }
