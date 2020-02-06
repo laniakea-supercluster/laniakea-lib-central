@@ -41,7 +41,7 @@ export interface IStreet extends entityType.IEntity<number> {
     type: entityType.RecordtType;
 }
 
-export interface IAddress extends entityType.IEntity<ObjectId> {
+export interface IAddress extends entityType.IEntity<ObjectId>, entityType.ITrackable {
     addressType: StreetType;
     street: IStreet;
     addressNumber: number | number[];

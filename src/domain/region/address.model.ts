@@ -3,6 +3,9 @@ import { StreetType } from './street.enum';
 import { ObjectId } from 'mongodb';
 
 export class Address implements IAddress {
+    createdOn: Date;
+    changedOn: Date;
+    signature: string;
     addressType: StreetType;
     street: IStreet;
     addressNumber: number | number[];

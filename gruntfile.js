@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         tsconfig: false
       },
       options: {
-        fast: 'always'
+        fast: 'never'
       },
       app: {
         files: [
