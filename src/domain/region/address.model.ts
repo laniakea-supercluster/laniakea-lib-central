@@ -1,6 +1,6 @@
 import { IAddress, IStreet, ICoordinate } from './region.type';
 import { StreetType } from './street.enum';
-import { ObjectId } from 'mongodb';
+import { ObjectID } from 'mongodb';
 
 export class Address implements IAddress {
     createdOn: Date;
@@ -11,5 +11,5 @@ export class Address implements IAddress {
     addressNumber: number | number[];
     complement: string;
     location: ICoordinate;
-    _id: ObjectId;
+    _id: ObjectID;
 }
