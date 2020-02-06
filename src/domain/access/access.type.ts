@@ -1,4 +1,4 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity-type';
+import * as entityType from '@atis/lib-core-domain/dist/entity.type';
 import { AccessCondition } from './access-condition.enum';
 import { OperatorType } from './operator-type.enum';
 import { ObjectId } from 'mongodb';

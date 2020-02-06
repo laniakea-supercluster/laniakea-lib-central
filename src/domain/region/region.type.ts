@@ -1,4 +1,4 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity-type';
+import * as entityType from '@atis/lib-core-domain/dist/entity.type';
 import { ObjectId } from 'mongodb';
 import { StreetType } from './street.enum';
 import { PrecisionType } from './precision.enum';

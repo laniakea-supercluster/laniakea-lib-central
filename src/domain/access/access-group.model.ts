@@ -1,4 +1,4 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity-type';
+import * as entityType from '@atis/lib-core-domain/dist/entity.type';
 import { IAccessGroup } from './access.type';
 import { ObjectId } from 'mongodb';
 
