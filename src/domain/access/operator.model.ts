@@ -1,9 +1,17 @@
 import { IOperator } from './access.type';
+import { AccessCondition } from './access-condition.enum';
+import { OperatorType } from './operator-type.enum';
+import { ObjectId } from 'mongodb';
 
 export class Operator implements IOperator {
-    email: string;    userName: string;
+    _id: ObjectId;
+    createdOn: Date;
+    changedOn: Date;
+    signature: string;
+    email: string;
+    userName: string;
     secret: string;
-    accessCondition: import('./access-condition.enum').AccessCondition;
-    operatorType: import('./operator-type.enum').OperatorType;
+    accessCondition: AccessCondition;
+    operatorType: OperatorType;
     confirmed: boolean;
 }

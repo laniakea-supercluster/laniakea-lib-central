@@ -3,10 +3,12 @@ import { IAccessGroup } from './access.type';
 import { ObjectID } from 'mongodb';
 
 export class AccessGroup implements IAccessGroup {
-    id: string;
+    createdOn: Date;
+    changedOn: Date;
+    signature: string;
     name: string;
     recordType: entityType.RecordtType = entityType.RecordtType.User;
     companyId: ObjectID;
     operatorIds: ObjectID[];
-    _id: string;
+    _id: ObjectID;
 }
