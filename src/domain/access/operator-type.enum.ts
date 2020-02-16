@@ -1,5 +1,5 @@
 export enum OperatorType {
     MASTER = 'MASTER'
-    ,SYSTEM = 'SYSTEM'
-    ,USER = 'USER'
+    , SYSTEM = 'SYSTEM'
+    , USER = 'USER'
 }
