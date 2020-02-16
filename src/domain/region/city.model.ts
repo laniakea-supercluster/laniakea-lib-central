@@ -1,5 +1,6 @@
 import * as regionType from './region.type';
 
+/* eslint-disable require-jsdoc */
 export class City implements regionType.ICity {
     createdOn: Date;
     changedOn: Date;

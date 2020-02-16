@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import * as regionType from './region.type';
 
 export class Country implements regionType.ICountry {

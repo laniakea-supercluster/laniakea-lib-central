@@ -1,15 +1,16 @@
-import { IAddress, IStreet, ICoordinate } from './region.type';
-import { StreetType } from './street.enum';
-import { ObjectID } from 'mongodb';
+import {IAddress, IStreet, ICoordinate} from './region.type';
+import {StreetType} from './street.enum';
+import {ObjectId} from 'mongodb';
 
+// eslint-disable-next-line require-jsdoc
 export class Address implements IAddress {
-    createdOn: Date;
-    changedOn: Date;
-    signature: string;
     addressType: StreetType;
-    street: IStreet;
+    streed: IStreet;
     addressNumber: number | number[];
     complement: string;
     location: ICoordinate;
-    _id: ObjectID;
+    _id: string | ObjectId;
+    createdOn: Date;
+    changedOn: Date;
+    signature: string;
 }

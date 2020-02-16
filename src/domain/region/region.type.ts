@@ -1,7 +1,7 @@
 import * as entityType from '@atis/lib-core-domain/dist/entity.type';
-import { ObjectID } from 'mongodb';
-import { StreetType } from './street.enum';
-import { PrecisionType } from './precision.enum';
+import {ObjectId} from 'mongodb';
+import {StreetType} from './street.enum';
+import {PrecisionType} from './precision.enum';
 
 export interface ICoordinate {
     latitude: number;
@@ -41,9 +41,9 @@ export interface IStreet extends entityType.IEntity<number>, entityType.ITrackab
     type: entityType.RecordtType;
 }
 
-export interface IAddress extends entityType.IEntity<ObjectID>, entityType.ITrackable {
+export interface IAddress extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     addressType: StreetType;
-    street: IStreet;
+    streed: IStreet;
     addressNumber: number | number[];
     complement: string;
     location: ICoordinate;
