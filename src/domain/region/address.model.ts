@@ -5,7 +5,7 @@ import {ObjectId} from 'mongodb';
 // eslint-disable-next-line require-jsdoc
 export class Address implements IAddress {
     addressType: StreetType;
-    streed: IStreet;
+    street: IStreet;
     addressNumber: number | number[];
     complement: string;
     location: ICoordinate;

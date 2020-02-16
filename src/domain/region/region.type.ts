@@ -43,7 +43,7 @@ export interface IStreet extends entityType.IEntity<number>, entityType.ITrackab
 
 export interface IAddress extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     addressType: StreetType;
-    streed: IStreet;
+    street: IStreet;
     addressNumber: number | number[];
     complement: string;
     location: ICoordinate;
