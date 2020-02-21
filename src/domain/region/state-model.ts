@@ -1,7 +1,7 @@
 import * as regionType from './region.type';
 
 // eslint-disable-next-line require-jsdoc
-export class Country implements regionType.IState {
+export class State implements regionType.IState {
     createdOn: Date;
     changedOn: Date;
     signature: string;
