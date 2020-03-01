@@ -13,6 +13,9 @@ export class Address implements IAddress {
     createdOn: Date;
     changedOn: Date;
     signature: string;
-    readonly getFullAddress =`${this.addressType} ${this.street.name}, ${this.addressNumber}, ${(this.complement) ? this.complement : ''} - ${this.street.district.name} - ${this.street.district.city.name} - ${this.street.district.city.state.name} - ${this.street.postalCode} - ${this.location} `;
-    }
+}
+
+export function getFullAddress(a: Address): string {
+    // eslint-disable-next-line max-len
+    return `${a.addressType} ${a.street.name}, ${a.addressNumber}, ${(a.complement) ? a.complement : ''} - ${a.street.district.name} - ${a.street.district.city.name} - ${a.street.district.city.state.name} - ${a.street.postalCode} - ${a.location} `;
 }
