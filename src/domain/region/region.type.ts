@@ -47,4 +47,5 @@ export interface IAddress extends entityType.IEntity<ObjectId | string>, entityT
     addressNumber: number | number[];
     complement: string;
     location: ICoordinate;
+    getFullAddress: string;
 }
