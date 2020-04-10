@@ -4,6 +4,7 @@ import { PermissionType } from './permission-type.enum';
 
 export interface IApiPermission extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     client: IAppClient;
+    api: IApi;
     permissions: PermissionType[];
 }
 
