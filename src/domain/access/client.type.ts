@@ -2,6 +2,11 @@ import * as entityType from '@atis/lib-core-domain/dist/entity.type';
 import { ObjectId } from 'mongodb';
 import { PermissionType } from './permission-type.enum';
 
+export interface ICredentials {
+    clientId: string;
+    secretId: string;
+}
+
 export interface IApiPermission extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     client: IAppClient;
     api: IApi;
@@ -10,7 +15,7 @@ export interface IApiPermission extends entityType.IEntity<ObjectId | string>, e
 
 export interface IAppClient extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     name: string;
-    secret: string;
+    credentials: ICredentials;
     apis: IApiPermission[];
 }
 
