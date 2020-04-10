@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import { ObjectId } from 'mongodb';
 import { IPlatform } from './access.type';
 

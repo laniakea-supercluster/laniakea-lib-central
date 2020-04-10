@@ -6,5 +6,5 @@ export interface IPhone {
 
 export interface IWorkTime {
     open: string;
-    clode: string;
+    close: string;
 }

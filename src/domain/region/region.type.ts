@@ -39,6 +39,7 @@ export interface IStreet extends entityType.IEntity<number>, entityType.ITrackab
     name: string;
     postalCode: number;
     type: entityType.RecordtType;
+    streetType: StreetType;
 }
 
 export interface IAddress extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
