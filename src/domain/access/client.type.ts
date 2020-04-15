@@ -8,8 +8,7 @@ export interface ICredentials {
 }
 
 export interface IApiPermission extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
-    client: IAppClient;
-    api: IApi;
+    api: string;
     permissions: PermissionType[];
 }
 
@@ -20,5 +19,4 @@ export interface IAppClient extends entityType.IEntity<ObjectId | string>, entit
 }
 
 export interface IApi extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
-    name: string;
 }

@@ -1,18 +1,12 @@
-import {IOperator} from './access.type';
-import {AccessCondition} from './access-condition.enum';
-import {OperatorType} from './operator-type.enum';
-import {ObjectId} from 'mongodb';
+import { IOperator, IComponentPermission } from './access.type';
+import { ObjectId } from 'mongodb';
+import { User } from './user.model';
 
 // eslint-disable-next-line require-jsdoc
-export class Operator implements IOperator {
-    email: string;
-    userName: string;
-    secret: string;
-    accessCondition: AccessCondition;
-    operatorType: OperatorType;
-    confirmed: boolean;
-    _id: string | ObjectId;
-    createdOn: Date;
-    changedOn: Date;
-    signature: string;
+export class Operator extends User implements IOperator {
+    companyId: string | ObjectId;
+    groups: string[];
+    modules: string[];
+    components: IComponentPermission[];
+    token: string;
 }

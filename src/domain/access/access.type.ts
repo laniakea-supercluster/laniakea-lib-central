@@ -1,24 +1,41 @@
 import * as entityType from '@atis/lib-core-domain/dist/entity.type';
-import {AccessCondition} from './access-condition.enum';
-import {OperatorType} from './operator-type.enum';
-import {ObjectId} from 'mongodb';
+import { IApiPermission } from './client.type';
+import { AccessCondition } from './access-condition.enum';
+import { OperatorType } from './operator-type.enum';
+import { ObjectId } from 'mongodb';
+import { ActionType } from './access-type.enum';
+
+export interface IComponentPermission {
+    component: IComponent,
+    permissions: ActionType
+}
 
 export interface IAccessGroup extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     name: string;
     recordType: entityType.RecordtType;
     companyId: ObjectId | string;
-    operatorIds: ObjectId[] | string[];
+    userIds: ObjectId[] | string[];
+    components: IComponentPermission[];
 }
 
-export interface IOperator extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IUser extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     email: string;
-    userName: string;
+    username: string;
     secret: string;
     accessCondition: AccessCondition;
     operatorType: OperatorType;
     confirmed: boolean;
 }
 
-export interface IPlatform extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IOperator extends IUser {
+    companyId: ObjectId | string;
+    groups: string[];
+    modules: string[];
+    components: IComponentPermission[];
+    token: string;
+}
+
+export interface IComponent extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
     name: string;
+    apis: IApiPermission[];
 }

@@ -1,10 +1,10 @@
 import { ObjectId } from 'mongodb';
-import { IAppClient, IApiPermission } from './client.type';
+import { IAppClient, IApiPermission, ICredentials } from './client.type';
 
 // eslint-disable-next-line require-jsdoc
 export class AppClient implements IAppClient {
     name: string;
-    secret: string;
+    credentials: ICredentials;
     apis: IApiPermission[];
     _id: string | ObjectId;
     createdOn: Date;
