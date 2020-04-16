@@ -8,5 +8,4 @@ export class Operator extends User implements IOperator {
     groups: string[];
     modules: string[];
     components: IComponentPermission[];
-    token: string;
 }

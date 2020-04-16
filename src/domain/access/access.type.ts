@@ -25,6 +25,8 @@ export interface IUser extends entityType.IEntity<ObjectId | string>, entityType
     accessCondition: AccessCondition;
     operatorType: OperatorType;
     confirmed: boolean;
+    token: string;
+    companies?: ObjectId[] | string[];
 }
 
 export interface IOperator extends IUser {
@@ -32,7 +34,6 @@ export interface IOperator extends IUser {
     groups: string[];
     modules: string[];
     components: IComponentPermission[];
-    token: string;
 }
 
 export interface IComponent extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {

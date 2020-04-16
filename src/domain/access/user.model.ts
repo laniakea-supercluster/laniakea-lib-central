@@ -11,6 +11,8 @@ export class User implements IUser {
     accessCondition: AccessCondition;
     operatorType: OperatorType;
     confirmed: boolean;
+    token: string;
+    companies?: ObjectId[] | string[];
     _id: string | ObjectId;
     createdOn: Date;
     changedOn: Date;
