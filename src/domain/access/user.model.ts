@@ -12,6 +12,7 @@ export class User implements IUser {
     operatorType: OperatorType;
     confirmed: boolean;
     token: string;
+    key: string;
     companies?: ObjectId[] | string[];
     _id: string | ObjectId;
     createdOn: Date;

@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import { IComponent, IModule } from './access.type';
 import { ObjectId } from 'mongodb';
 import { IApiPermission, ActionType } from '../access';

@@ -27,6 +27,7 @@ export interface IUser extends entityType.IEntity<ObjectId | string>, entityType
     operatorType: OperatorType;
     confirmed: boolean;
     token: string;
+    key: string;
     companies?: ObjectId[] | string[];
 }
 
