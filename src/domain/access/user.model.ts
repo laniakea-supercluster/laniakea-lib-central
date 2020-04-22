@@ -13,6 +13,8 @@ export class User implements IUser {
     confirmed: boolean;
     token: string;
     key: string;
+    defaultCompanyId?: ObjectId | string;
+    currentCompanyId?: ObjectId | string;
     companies?: ObjectId[] | string[];
     _id: string | ObjectId;
     createdOn: Date;

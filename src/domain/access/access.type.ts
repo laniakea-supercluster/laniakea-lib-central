@@ -28,6 +28,8 @@ export interface IUser extends entityType.IEntity<ObjectId | string>, entityType
     confirmed: boolean;
     token: string;
     key: string;
+    defaultCompanyId?: ObjectId | string;
+    currentCompanyId?: ObjectId | string;
     companies?: ObjectId[] | string[];
 }
 
