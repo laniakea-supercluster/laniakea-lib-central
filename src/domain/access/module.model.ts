@@ -1,14 +1,12 @@
 /* eslint-disable require-jsdoc */
-import { IComponent } from './access.type';
+import { IModule } from './access.type';
 import { ObjectId } from 'mongodb';
-import { IApiPermission, ActionType } from '../access';
 
 // eslint-disable-next-line require-jsdoc
-export class Component implements IComponent {
+export class Module implements IModule {
     name: string;
-    moduleId: string | ObjectId;
-    apis: IApiPermission[];
-    permissions: ActionType[];
+    parent: string | ObjectId;
+    serviceId: string | ObjectId;
     _id: string | ObjectId;
     createdOn: Date;
     changedOn: Date;

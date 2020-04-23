@@ -1,11 +1,13 @@
-import { IOperator, IComponent } from './access.type';
+import { IProfile, IComponent, IAccessGroup, IModule } from './access.type';
 import { ObjectId } from 'mongodb';
 import { User } from './user.model';
+import { IEnterprise } from '../enterprise';
 
 // eslint-disable-next-line require-jsdoc
-export class Operator extends User implements IOperator {
-    companyId: string | ObjectId;
-    groups: string[];
-    modules: string[];
+export class Profile extends User implements IProfile {
+    company: IEnterprise;
+    accessGroups: IAccessGroup[];
+    modules: IModule[];
     components: IComponent[];
+    defaultCompany?: string | ObjectId;
 }

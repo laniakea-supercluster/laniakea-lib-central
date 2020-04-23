@@ -4,6 +4,11 @@ import { AccessCondition } from './access-condition.enum';
 import { OperatorType } from './operator-type.enum';
 import { ObjectId } from 'mongodb';
 import { ActionType } from './access-type.enum';
+import { IEnterprise } from '../enterprise/enterprise.type';
+
+export interface IPlatform extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+    name: string;
+}
 
 // FIXME: Permisions are wrong.
 export interface IComponentPermission {
@@ -28,25 +33,33 @@ export interface IUser extends entityType.IEntity<ObjectId | string>, entityType
     confirmed: boolean;
     token: string;
     key: string;
-    defaultCompanyId?: ObjectId | string;
-    currentCompanyId?: ObjectId | string;
+    defaultCompany?: ObjectId | string;
     companies?: ObjectId[] | string[];
 }
 
-export interface IOperator extends IUser {
-    companyId: ObjectId | string;
-    groups: string[];
-    modules: string[];
+export interface IProfile extends IUser {
+    company: IEnterprise;
+    accessGroups: IAccessGroup[];
+    modules: IModule[];
     components: IComponent[];
 }
 
-export interface IComponent extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IFeature {
+    path: string;
+    icon: string;
+    cssClass: string;
+    extralink: string;
+}
+
+export interface IComponent extends entityType.IEntity<ObjectId | string>, entityType.ITrackable, IFeature {
     name: string;
-    module: IModule;
+    moduleId: ObjectId | string;
     apis: IApiPermission[];
     permissions: ActionType[];
 }
 
-export interface IModule extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IModule extends entityType.IEntity<ObjectId | string>, entityType.ITrackable, IFeature {
     name: string;
+    parent: ObjectId | string;
+    serviceId: ObjectId | string;
 }

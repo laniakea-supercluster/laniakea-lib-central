@@ -14,7 +14,6 @@ export class User implements IUser {
     token: string;
     key: string;
     defaultCompanyId?: ObjectId | string;
-    currentCompanyId?: ObjectId | string;
     companies?: ObjectId[] | string[];
     _id: string | ObjectId;
     createdOn: Date;

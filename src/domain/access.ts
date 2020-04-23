@@ -5,6 +5,7 @@ export * from './access/access-condition.enum';
 export * from './access/access-group.model';
 export * from './access/operator.model';
 export * from './access/user.model';
+export * from './access/module.model';
 export * from './access/component.model';
 export * from './access/permission-type.enum';
 export * from './access/client.type';
