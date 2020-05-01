@@ -4,6 +4,7 @@ import { ObjectId } from 'mongodb';
 
 // eslint-disable-next-line require-jsdoc
 export class Module implements IModule {
+    ancestor?: IModule
     name: string;
     parent: string | ObjectId;
     serviceId: string | ObjectId;
@@ -13,6 +14,6 @@ export class Module implements IModule {
     signature: string;
     path: string;
     icon: string;
-    cssClass: string;
+    class: string;
     extralink: string;
 }

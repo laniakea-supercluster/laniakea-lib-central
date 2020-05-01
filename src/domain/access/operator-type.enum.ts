@@ -1,5 +1,6 @@
 export enum OperatorType {
-    MASTER = 'MASTER'
-    , SYSTEM = 'SYSTEM'
+    MASTER = 'ADMIN'
+    , SYSTEM = 'SISTEMA'
     , OPERATOR = 'OPERADOR'
+    , ANONYMOUS = 'VISITANTE'
 }

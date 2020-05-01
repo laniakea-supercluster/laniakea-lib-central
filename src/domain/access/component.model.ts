@@ -6,6 +6,7 @@ import { IApiPermission, ActionType } from '../access';
 // eslint-disable-next-line require-jsdoc
 export class Component implements IComponent {
     name: string;
+    title: string;
     moduleId: string | ObjectId;
     apis: IApiPermission[];
     permissions: ActionType[];
@@ -15,6 +16,6 @@ export class Component implements IComponent {
     signature: string;
     path: string;
     icon: string;
-    cssClass: string;
+    class: string;
     extralink: string;
 }

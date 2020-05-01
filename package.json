@@ -1,6 +1,6 @@
 {
   "name": "@atis/lib-central-domain",
-  "version": "3.0.1-32",
+  "version": "3.0.1-33",
   "description": "Core package for shared domains which means central.",
   "author": {
     "name": "Adriano Ferreira",
