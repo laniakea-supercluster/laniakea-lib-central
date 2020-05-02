@@ -16,4 +16,5 @@ export class Module implements IModule {
     icon: string;
     class: string;
     extralink: string;
+    order: number;
 }

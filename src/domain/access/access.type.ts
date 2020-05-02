@@ -49,6 +49,7 @@ export interface IFeature {
   icon: string;
   class: string;
   extralink: string;
+  order: number;
 }
 
 export interface IComponent extends entityType.IEntity<ObjectId | string>, entityType.ITrackable, IFeature {

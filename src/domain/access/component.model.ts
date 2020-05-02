@@ -18,4 +18,5 @@ export class Component implements IComponent {
     icon: string;
     class: string;
     extralink: string;
+    order: number;
 }
