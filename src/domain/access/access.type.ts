@@ -25,6 +25,8 @@ export interface IAccessGroup extends entityType.IEntity<ObjectId | string>, ent
 }
 
 export interface IUser extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+  name: string;
+  surName: string;
   email: string;
   username: string;
   secret: string;
