@@ -6,7 +6,7 @@ import { ObjectId } from 'mongodb';
 // eslint-disable-next-line require-jsdoc
 export class User implements IUser {
     name: string;
-    surName: string;
+    surname: string;
     email: string;
     username: string;
     secret: string;
