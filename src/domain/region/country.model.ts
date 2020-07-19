@@ -8,5 +8,6 @@ export class Country implements regionType.ICountry {
     code: number;
     name: string;
     mcc: number;
+    initials: string;
     _id: number;
 }

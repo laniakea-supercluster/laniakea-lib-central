@@ -13,6 +13,7 @@ export interface ICountry extends entityType.IEntity<number>, entityType.ITracka
     code: number;
     name: string;
     mcc: number;
+    initials: string;
 }
 
 export interface IState extends entityType.IEntity<string>, entityType.ITrackable {
