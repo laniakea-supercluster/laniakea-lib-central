@@ -1,6 +1,6 @@
 {
   "name": "@atis/lib-central-domain",
-  "version": "3.0.1-51",
+  "version": "3.0.1-52",
   "description": "Core package for shared domains which means central.",
   "author": {
     "name": "Adriano Ferreira",
@@ -9,9 +9,6 @@
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/atisenterprise/lib-central-domain.git"
-  },
-  "publishConfig": {
-    "registry": "https://atis.jfrog.io/artifactory/api/npm/atis-stage-libs/"
   },
   "license": "UNLICENSED",
   "main": "./dist/index.js",
