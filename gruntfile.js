@@ -41,6 +41,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks(`${parentPath}/grunt-contrib-clean`);
   grunt.loadNpmTasks(`${parentPath}/grunt-contrib-copy`);
   grunt.loadNpmTasks(`${parentPath}/grunt-contrib-watch`);
-  
+
   grunt.registerTask('default', ['clean', 'ts']);
 };

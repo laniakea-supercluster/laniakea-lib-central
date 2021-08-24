@@ -10,3 +10,4 @@ export * from './access/component.model';
 export * from './access/permission-type.enum';
 export * from './access/client.type';
 export * from './access/client.model';
+export * from './access/security-chain.model';
