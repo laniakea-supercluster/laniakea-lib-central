@@ -1,6 +1,6 @@
 {
   "name": "@atisiothings/laniakea-lib-central",
-  "version": "0.0.38",
+  "version": "0.0.47",
   "description": "Central package for shared domains which means central.",
   "author": {
     "name": "Adriano Ferreira",
@@ -11,8 +11,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "grunt",
-    "lint": "grunt eslint",
-    "publish": "grunt publish"
+    "lint": "grunt eslint"
   },
   "dependencies": {
     "@atisiothings/laniakea-lib-core": "^0.0.6"

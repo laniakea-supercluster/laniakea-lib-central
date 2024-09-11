@@ -1,3 +1,6 @@
+const execSync = require('child_process').execSync;
+const semver = require('semver'); // Adiciona a importação do semver
+
 module.exports = function(grunt) {
   'use strict';
 
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
         options: {
           module: 'commonjs',
           target: 'es6',
-          sourceMap: true, 
+          sourceMap: true,
           declaration: true,
           rootDir: 'src',
           experimentalDecorators: true,
@@ -31,7 +34,7 @@ module.exports = function(grunt) {
     },
     eslint: {
       target: ['src/**/*.ts']
-    },    
+    },
     watch: {
       ts: {
         files: ['src/**/*.ts'],
@@ -41,33 +44,68 @@ module.exports = function(grunt) {
     bump: {
       options: {
         files: ['package.json'],
-        commit: true,
+        commit: false,
         commitMessage: 'Release v%VERSION%',
         commitFiles: ['package.json'],
-        createTag: true,
+        createTag: false,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
         push: false
       }
-    },
-    shell: {
-      npmPublish: {
-        command: 'npm publish --access public --//registry.npmjs.org/:_authToken=${NPM_TOKEN}'
-      }
     }
   });
-
-  // grunt.loadNpmTasks(`${parentPath}/grunt-ts`);
-  // grunt.loadNpmTasks(`${parentPath}/grunt-contrib-clean`);
-  // grunt.loadNpmTasks(`${parentPath}/grunt-contrib-copy`);
-  // grunt.loadNpmTasks(`${parentPath}/grunt-contrib-watch`);
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-shell');
+
+  grunt.registerTask('determineVersion', 'Determine the next version based on the parameter', function() {
+    const done = this.async();
+    const type = grunt.option('type'); // 'fix', 'feat', 'breaking'
+    let currentVersion;
+
+    try {
+      currentVersion = execSync('npm view . version').toString().trim();
+    } catch (error) {
+      grunt.log.writeln('Package not published yet, starting at version 0.0.0');
+      currentVersion = '0.0.0';
+    }
+
+    let newVersion;
+    if (type === 'feat') {
+      newVersion = semver.inc(currentVersion, 'minor');
+    } else if (type === 'breaking') {
+      newVersion = semver.inc(currentVersion, 'major');
+    } else {
+      newVersion = semver.inc(currentVersion, 'patch');
+    }
+
+    grunt.log.writeln('Current Version:', currentVersion);
+    grunt.log.writeln('New Version:', newVersion);
+
+    grunt.config.set('bump.options.version', newVersion);
+
+    done();
+  });
+
+  // Task to bump version
+  grunt.registerTask('bumpVersion', ['determineVersion', 'bump']);
+
+  grunt.registerTask('check', ['determineVersion']);
+
+  // Task to publish without triggering the bumpVersion task again
+  grunt.registerTask('publish', function() {
+    try {
+      execSync('npm publish --access public --registry https://registry.npmjs.org/ --verbose', { stdio: 'inherit' });
+      grunt.log.ok('Pacote publicado com sucesso!');
+    } catch (error) {
+      grunt.log.error('Falha ao publicar:', error);
+      return false;
+    }
+  });
 
   grunt.registerTask('default', ['clean', 'ts:app', 'eslint']);
-  grunt.registerTask('publish', ['bump', 'shell:npmPublish']);
+  grunt.registerTask('check', ['determineVersion']);
+  grunt.registerTask('deploy', ['bumpVersion','publish']);
 };

@@ -5,8 +5,16 @@ npx eslint .
 npx grunt clean
 DEBUG=eslint:* npx grunt eslint
 
+npx grunt check --type=breaking
+npx grunt check --type=feat
+npx grunt check --type=fix
+
+npm cache clean --force
+npm access list packages
+npm access list collaborators [<package> [<user>]]
 
 npm publish --access public
+npm publish --access public --verbose
 npm unpublish @atisiothings/lib-core-domain@0.0.6
 npm unpublish @atisiothings/lib-core-domain@0.0.6 --force
 
