@@ -1,6 +1,6 @@
 {
   "name": "@atisiothings/laniakea-lib-central",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "Central package for shared domains which means central.",
   "author": {
     "name": "Adriano Ferreira",
