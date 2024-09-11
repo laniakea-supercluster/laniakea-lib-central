@@ -1,13 +1,27 @@
-import { IProfile, IComponent, IAccessGroup, IModule } from './access.type';
-import { ObjectId } from 'mongodb';
-import { User } from './user.model';
+import { IProfile, IComponent, IAccessGroup, IModule, IUser } from './access.type';
 import { IEnterprise } from '../enterprise';
 
-// eslint-disable-next-line require-jsdoc
-export class Profile extends User implements IProfile {
+export default class Profile implements IProfile {
+    user: IUser;
     company: IEnterprise;
     accessGroups: IAccessGroup[];
     modules: IModule[];
     components: IComponent[];
-    defaultCompany?: string | ObjectId;
+    defaultCompany?: string;
+
+    constructor(
+        user: IUser,
+        company: IEnterprise,
+        accessGroups: IAccessGroup[],
+        modules: IModule[],
+        components: IComponent[],
+        defaultCompany?: string,
+    ) {
+        this.user = user;
+        this.company = company;
+        this.accessGroups = accessGroups;
+        this.modules = modules;
+        this.components = components;
+        this.defaultCompany = defaultCompany;
+    }
 }

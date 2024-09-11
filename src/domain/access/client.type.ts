@@ -1,5 +1,4 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity.type';
-import { ObjectId } from 'mongodb';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
 import { PermissionType } from './permission-type.enum';
 
 export interface ICredentials {
@@ -7,16 +6,16 @@ export interface ICredentials {
     secretId: string;
 }
 
-export interface IApiPermission extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IApiPermission extends entityType.IIdentifier<string>, entityType.ITrackable {
     api: string;
     permissions: PermissionType[];
 }
 
-export interface IAppClient extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IAppClient extends entityType.IIdentifier<string>, entityType.ITrackable {
     name: string;
     credentials: ICredentials;
     apis: IApiPermission[];
 }
 
-export interface IApi extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IApi extends entityType.IIdentifier<string>, entityType.ITrackable {
 }

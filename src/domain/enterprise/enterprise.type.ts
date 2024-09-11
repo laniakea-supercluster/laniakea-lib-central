@@ -1,9 +1,8 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
 import { IAddress } from '../region';
 import { IUser, IPlatform } from '../access/access.type';
-import { ObjectId } from 'mongodb';
 
-export interface IEnterprise extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
+export interface IEnterprise extends entityType.IIdentifier<string>, entityType.ITrackable {
     name: string;
     fantasyName: string;
     address: IAddress;

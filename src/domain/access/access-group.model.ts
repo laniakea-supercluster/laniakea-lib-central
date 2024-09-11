@@ -1,16 +1,36 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
 import { IAccessGroup, IComponentPermission } from './access.type';
-import { ObjectId } from 'mongodb';
 
-// eslint-disable-next-line require-jsdoc
-export class AccessGroup implements IAccessGroup {
-    name: string;
-    recordType: entityType.RecordtType;
-    companyId: string | ObjectId;
-    userIds: ObjectId[] | string[];
-    components: IComponentPermission[];
-    _id: string | ObjectId;
+export default class AccessGroup implements IAccessGroup {
+    readonly _id: string;
     createdOn: Date;
     changedOn: Date;
     signature: string;
+    name: string;
+    recordType: entityType.RecordtType;
+    companyId: string;
+    userIds: string[];
+    components: IComponentPermission[];
+
+    constructor(
+        _id: string,
+        createdOn: Date,
+        changedOn: Date,
+        signature: string,
+        name: string,
+        recordType: entityType.RecordtType,
+        companyId: string,
+        userIds: string[],
+        components: IComponentPermission[],
+    ) {
+        this._id = _id;
+        this.createdOn = createdOn;
+        this.changedOn = changedOn;
+        this.signature = signature;
+        this.name = name;
+        this.recordType = recordType;
+        this.companyId = companyId;
+        this.userIds = userIds;
+        this.components = components;
+    }
 }

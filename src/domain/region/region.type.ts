@@ -1,7 +1,5 @@
-import * as entityType from '@atis/lib-core-domain/dist/entity.type';
-import {ObjectId} from 'mongodb';
-import {StreetType} from './street.enum';
-import {PrecisionType} from './precision.enum';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import { StreetType, PrecisionType, AddressType } from './region.enum';
 
 export interface ICoordinate {
     latitude: number;
@@ -9,33 +7,34 @@ export interface ICoordinate {
     precision: PrecisionType;
 }
 
-export interface ICountry extends entityType.IEntity<number>, entityType.ITrackable {
+export interface ICountry extends entityType.IIdentifier<string>, entityType.ITrackable {
     code: number;
     name: string;
     mcc: number;
     initials: string;
+    language: string;
 }
 
-export interface IState extends entityType.IEntity<string>, entityType.ITrackable {
+export interface IState extends entityType.IIdentifier<string>, entityType.ITrackable {
     country: ICountry;
     name: string;
     areaCode: number;
     hasDST: boolean;
 }
 
-export interface ICity extends entityType.IEntity<number>, entityType.ITrackable {
+export interface ICity extends entityType.IIdentifier<string>, entityType.ITrackable {
     state: IState;
     code: number;
     name: string;
     postalCode: number;
 }
 
-export interface IDistrict extends entityType.IEntity<number>, entityType.ITrackable {
+export interface IDistrict extends entityType.IIdentifier<string>, entityType.ITrackable {
     city: ICity;
     name:string;
 }
 
-export interface IStreet extends entityType.IEntity<number>, entityType.ITrackable {
+export interface IStreet extends entityType.IIdentifier<string>, entityType.ITrackable {
     district: IDistrict;
     name: string;
     postalCode: number;
@@ -43,10 +42,10 @@ export interface IStreet extends entityType.IEntity<number>, entityType.ITrackab
     streetType: StreetType;
 }
 
-export interface IAddress extends entityType.IEntity<ObjectId | string>, entityType.ITrackable {
-    addressType: StreetType;
+export interface IAddress extends entityType.IIdentifier<string>, entityType.ITrackable {
+    addressType: AddressType;
     street: IStreet;
-    addressNumber: number | number[];
+    streetNumber: number | number[];
     complement: string;
     location: ICoordinate;
 }

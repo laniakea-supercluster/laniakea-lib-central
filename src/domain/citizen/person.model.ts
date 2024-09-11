@@ -1,7 +1,9 @@
-/* eslint-disable require-jsdoc */
-import { User } from '../access/user.model';
+export default class Person {
+    name: string;
+    surname: string;
 
-// https://pt.stackoverflow.com/questions/22431/express%C3%A3o-regular-para-rg
-export class Person extends User {
-
+    constructor(name: string, surname: string) {
+        this.name = name;
+        this.surname = surname;
+    }
 }

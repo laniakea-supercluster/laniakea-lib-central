@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 export enum OperatorType {
     MASTER = 'ADMIN'
-    , SYSTEM = 'SISTEMA'
-    , OPERATOR = 'OPERADOR'
-    , ANONYMOUS = 'VISITANTE'
+    , SYSTEM = 'SYSTEM'
+    , OPERATOR = 'OPERATOR'
+    , GUEST = 'GUEST'
 }
+
+export default OperatorType;
