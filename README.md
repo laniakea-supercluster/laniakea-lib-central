@@ -9,6 +9,8 @@ npx grunt check --type=breaking
 npx grunt check --type=feat
 npx grunt check --type=fix
 
+npx compodoc -p tsconfig.json -s
+
 npm cache clean --force
 npm access list packages
 npm access list collaborators [<package> [<user>]]

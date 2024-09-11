@@ -190,10 +190,12 @@ export class Address implements regionType.IAddress {
         this.location = location;
     }
 
+    /* eslint-disable max-len */
     getFullAddress(): string {
-        return `${this.addressType} 
-        ${this.street.name}, 
-        ${this.streetNumber}, 
+        return `${this.addressType}
+        ${this.street.name},
+        ${this.streetNumber},
         ${this.complement ? this.complement : ''} - ${this.street.district.name} - ${this.street.district.city.name} - ${this.street.district.city.state.name} - ${this.street.postalCode} - ${this.location}`;
     }
+    /* eslint-enable max-len */
 }

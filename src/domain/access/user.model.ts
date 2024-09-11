@@ -1,8 +1,8 @@
 import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
 import { IUser } from './access.type';
-import { Person } from '../citizen/person.model';
 import { AccessCondition } from './access.enum';
 import { OperatorType } from './operator-type.enum';
+import Person from '../citizen/person.model';
 
 export default class User extends Person implements IUser, entityType.IIdentifier<string>, entityType.ITrackable {
     readonly _id: string;
@@ -22,6 +22,8 @@ export default class User extends Person implements IUser, entityType.IIdentifie
 
     constructor(
         _id: string,
+        name: string,
+        surname: string,
         createdOn: Date,
         changedOn: Date,
         signature: string,
@@ -36,7 +38,7 @@ export default class User extends Person implements IUser, entityType.IIdentifie
         defaultCompanyId?: string,
         companies?: string[],
     ) {
-        super(); // Chama o construtor da classe pai (Person)
+        super(name, surname);
         this._id = _id;
         this.createdOn = createdOn;
         this.changedOn = changedOn;

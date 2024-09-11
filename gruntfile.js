@@ -1,5 +1,6 @@
 const execSync = require('child_process').execSync;
 const semver = require('semver'); // Adiciona a importação do semver
+const path = require('path');
 
 module.exports = function(grunt) {
   'use strict';
@@ -17,7 +18,7 @@ module.exports = function(grunt) {
         files: [
           {
             src: ['src/**/*.ts', '!src/.baseDir.ts'],
-            dest: './dist'
+            dest: './dist/lib'
           }
         ],
         options: {
@@ -52,13 +53,14 @@ module.exports = function(grunt) {
         tagMessage: 'Version %VERSION%',
         push: false
       }
-    }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('determineVersion', 'Determine the next version based on the parameter', function() {
     const done = this.async();
@@ -94,18 +96,42 @@ module.exports = function(grunt) {
 
   grunt.registerTask('check', ['determineVersion']);
 
+  // Task to generate documentation using Compodoc from the parent folder
+  grunt.registerTask('generateDocs', function() {
+    const compodocPath = path.resolve(__dirname, '../node_modules/.bin/compodoc'); // Adjust the path to Compodoc
+    try {
+      execSync(`${compodocPath} -p tsconfig.json -d dist/documentation`, { stdio: 'inherit' }); // Output directly to dist/documentation
+      grunt.log.ok('Documentation generated successfully!');
+    } catch (error) {
+      grunt.log.error('Failed to generate documentation:', error);
+      return false;
+    }
+  });
+  
+
+  grunt.registerTask('serveDocs', function() {
+    const compodocPath = path.resolve(__dirname, '../node_modules/.bin/compodoc'); // Path to Compodoc in parent folder
+    try {
+        execSync(`${compodocPath} -p tsconfig.json -s`, { stdio: 'inherit' });
+        grunt.log.ok('Compodoc is serving documentation at http://localhost:8080');
+    } catch (error) {
+        grunt.log.error('Failed to serve documentation:', error);
+        return false;
+    }
+});
+
   // Task to publish without triggering the bumpVersion task again
   grunt.registerTask('publish', function() {
     try {
       execSync('npm publish --access public --registry https://registry.npmjs.org/ --verbose', { stdio: 'inherit' });
-      grunt.log.ok('Pacote publicado com sucesso!');
+      grunt.log.ok('Package published successfully!');
     } catch (error) {
-      grunt.log.error('Falha ao publicar:', error);
+      grunt.log.error('Failed to publish:', error);
       return false;
     }
   });
 
-  grunt.registerTask('default', ['clean', 'ts:app', 'eslint']);
   grunt.registerTask('check', ['determineVersion']);
-  grunt.registerTask('deploy', ['bumpVersion','publish']);
+  grunt.registerTask('default', ['clean', 'ts:app', 'eslint']);
+  grunt.registerTask('deploy', ['bumpVersion', 'generateDocs', 'publish']);
 };
