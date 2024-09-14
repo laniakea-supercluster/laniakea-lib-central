@@ -10,6 +10,9 @@ npx grunt check --type=feat
 npx grunt check --type=fix
 
 npx compodoc -p tsconfig.json -s
+npm install eslint@latest --save-dev --legacy-peer-deps //bypass the peer dependency resolutio
+npm install eslint@latest eslint-plugin-import@latest eslint-config-airbnb-base@latest --save-dev --legacy-peer-deps
+
 
 npm cache clean --force
 npm access list packages
