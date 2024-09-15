@@ -1,6 +1,6 @@
 import { IModule } from './access.type';
 
-export default class Module implements IModule {
+export class Module implements IModule {
     readonly _id: string;
     createdOn: Date;
     changedOn: Date;

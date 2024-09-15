@@ -1,6 +1,6 @@
 import { IPlatform } from './access.type';
 
-export default class Platform implements IPlatform {
+export class Platform implements IPlatform {
     readonly _id: string;
     name: string;
     createdOn: Date;

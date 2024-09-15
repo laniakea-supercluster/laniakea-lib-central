@@ -6,7 +6,7 @@ import { IAccessGroup, IComponentPermission } from './access.type';
  * @implements {IAccessGroup}
  * @description Class representing an access group in the system.
  */
-export default class AccessGroup implements IAccessGroup {
+export class AccessGroup implements IAccessGroup {
     /**
      * @readonly
      * @property {string} _id - Unique identifier for the access group.

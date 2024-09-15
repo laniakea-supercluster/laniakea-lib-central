@@ -1,6 +1,6 @@
 import { IAppClient, IApiPermission, ICredentials } from './client.type';
 
-export default class AppClient implements IAppClient {
+export class AppClient implements IAppClient {
     readonly _id: string;
     createdOn: Date;
     changedOn: Date;

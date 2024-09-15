@@ -2,9 +2,9 @@ import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
 import { IUser } from './access.type';
 import { AccessCondition } from './access.enum';
 import { OperatorType } from './operator-type.enum';
-import Person from '../citizen/person.model';
+import { Person } from '../citizen/person.model';
 
-export default class User extends Person implements IUser, entityType.IIdentifier<string>, entityType.ITrackable {
+export class User extends Person implements IUser, entityType.IIdentifier<string>, entityType.ITrackable {
     readonly _id: string;
     createdOn: Date;
     changedOn: Date;

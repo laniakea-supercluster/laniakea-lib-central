@@ -1,4 +1,4 @@
-export default class Person {
+export class Person {
     name: string;
     surname: string;
 

@@ -1,7 +1,7 @@
 import { IProfile, IComponent, IAccessGroup, IModule, IUser } from './access.type';
 import { IEnterprise } from '../enterprise';
 
-export default class Profile implements IProfile {
+export class Profile implements IProfile {
     user: IUser;
     company: IEnterprise;
     accessGroups: IAccessGroup[];

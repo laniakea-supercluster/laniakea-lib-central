@@ -1,7 +1,7 @@
 import { IComponent } from './access.type';
 import { IApiPermission, ActionType } from '../access';
 
-export default class Component implements IComponent {
+export class Component implements IComponent {
     readonly _id: string;
     name: string;
     title: string;

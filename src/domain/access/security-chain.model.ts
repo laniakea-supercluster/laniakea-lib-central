@@ -1,4 +1,4 @@
-export default class SecurityChain {
+export class SecurityChain {
     jwtTokenKey: string;
     aesAUserKey: string;
     otpSecret: string;
