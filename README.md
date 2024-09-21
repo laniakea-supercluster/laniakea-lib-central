@@ -26,7 +26,7 @@ npm unpublish @atisiothings/lib-core-domain@0.0.6 --force
 
 // https://pt.stackoverflow.com/questions/22431/express%C3%A3o-regular-para-rg
 
-
+# GIT 
 git remote add origin // git init
 git remote set-url origin 
 git merge origin/develop --allow-unrelated-histories
@@ -37,7 +37,7 @@ host=github.com
 
 
 
-DEV - GRUNT
+# DEV - GRUNT
 npx grunt clean --projects=laniakea-lib-database,laniakea-lib-central  
 
 npx grunt --projects=laniakea-lib-central --build-type=ts
@@ -45,7 +45,6 @@ npx grunt deploy --projects=laniakea-lib-central --build-type=ts
 
 npx grunt --projects=laniakea-lib-database --build-type=nest
 npx grunt deploy --projects=laniakea-lib-database --build-type=nest
-
-
+npx grunt --projects=laniakea-lib-database,laniakea-lib-http --build-type=nest
 
 -->
