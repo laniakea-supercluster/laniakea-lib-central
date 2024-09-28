@@ -33,8 +33,8 @@ git merge origin/develop --allow-unrelated-histories
 git credential-osxkeychain erase
 host=github.com
 
-
-
+error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
+git config --global http.postBuffer 157286400
 
 
 # DEV - GRUNT
