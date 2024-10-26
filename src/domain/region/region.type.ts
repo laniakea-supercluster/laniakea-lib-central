@@ -1,4 +1,4 @@
-import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/domain/entity.type';
 import { StreetType, PrecisionType, AddressType } from './region.enum';
 
 export interface ICoordinate {

@@ -2,8 +2,8 @@ import { IAppClient, IApiPermission, ICredentials } from './client.type';
 
 export class AppClient implements IAppClient {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     name: string;
     credentials: ICredentials;
@@ -11,16 +11,16 @@ export class AppClient implements IAppClient {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         name: string,
         credentials: ICredentials,
         apis: IApiPermission[],
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.name = name;
         this.credentials = credentials;

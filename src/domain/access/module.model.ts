@@ -2,8 +2,8 @@ import { IModule } from './access.type';
 
 export class Module implements IModule {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     ancestor?: IModule;
     name: string;
@@ -17,8 +17,8 @@ export class Module implements IModule {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         name: string,
         parent: string,
@@ -31,8 +31,8 @@ export class Module implements IModule {
         ancestor?: IModule,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.name = name;
         this.parent = parent;

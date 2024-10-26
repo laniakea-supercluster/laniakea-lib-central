@@ -1,4 +1,4 @@
-import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/domain/entity.type';
 import { IApiPermission } from './client.type';
 import { AccessCondition, ActionType } from './access.enum';
 import { OperatorType } from './operator-type.enum';

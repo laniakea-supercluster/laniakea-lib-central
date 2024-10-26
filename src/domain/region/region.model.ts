@@ -1,11 +1,11 @@
-import { RecordtType } from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import { RecordtType } from '@atisiothings/laniakea-lib-core/dist/domain/entity.type';
 import * as regionType from './region.type';
 import { AddressType, StreetType } from './region.enum';
 
 export class Country implements regionType.ICountry {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     code: number;
     name: string;
@@ -15,8 +15,8 @@ export class Country implements regionType.ICountry {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         code: number,
         name: string,
@@ -25,8 +25,8 @@ export class Country implements regionType.ICountry {
         language: string,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.code = code;
         this.name = name;
@@ -38,8 +38,8 @@ export class Country implements regionType.ICountry {
 
 export class State implements regionType.IState {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     country: regionType.ICountry;
     name: string;
@@ -48,8 +48,8 @@ export class State implements regionType.IState {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         country: regionType.ICountry,
         name: string,
@@ -57,8 +57,8 @@ export class State implements regionType.IState {
         hasDST: boolean,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.country = country;
         this.name = name;
@@ -69,8 +69,8 @@ export class State implements regionType.IState {
 
 export class City implements regionType.ICity {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     state: regionType.IState;
     code: number;
@@ -79,8 +79,8 @@ export class City implements regionType.ICity {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         state: regionType.IState,
         code: number,
@@ -88,8 +88,8 @@ export class City implements regionType.ICity {
         postalCode: number,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.state = state;
         this.code = code;
@@ -100,23 +100,23 @@ export class City implements regionType.ICity {
 
 export class District implements regionType.IDistrict {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     city: regionType.ICity;
     name: string;
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         city: regionType.ICity,
         name: string,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.city = city;
         this.name = name;
@@ -125,8 +125,8 @@ export class District implements regionType.IDistrict {
 
 export class Street implements regionType.IStreet {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     district: regionType.IDistrict;
     name: string;
@@ -136,8 +136,8 @@ export class Street implements regionType.IStreet {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         district: regionType.IDistrict,
         name: string,
@@ -146,8 +146,8 @@ export class Street implements regionType.IStreet {
         streetType: StreetType,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.district = district;
         this.name = name;
@@ -159,8 +159,8 @@ export class Street implements regionType.IStreet {
 
 export class Address implements regionType.IAddress {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     addressType: AddressType;
     street: regionType.IStreet;
@@ -170,8 +170,8 @@ export class Address implements regionType.IAddress {
 
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         addressType: AddressType,
         street: regionType.IStreet,
@@ -180,8 +180,8 @@ export class Address implements regionType.IAddress {
         location: regionType.ICoordinate,
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.addressType = addressType;
         this.street = street;

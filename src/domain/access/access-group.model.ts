@@ -1,4 +1,4 @@
-import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/domain/entity.type';
 import { IAccessGroup, IComponentPermission } from './access.type';
 
 /**
@@ -14,14 +14,14 @@ export class AccessGroup implements IAccessGroup {
     readonly _id: string;
 
     /**
-     * @property {Date} createdOn - The date when the access group was created.
+     * @property {Date} createdAt - The date when the access group was created.
      */
-    createdOn: Date;
+    createdAt: Date;
 
     /**
-     * @property {Date} changedOn - The date when the access group was last modified.
+     * @property {Date} changedAt - The date when the access group was last modified.
      */
-    changedOn: Date;
+    changedAt: Date;
 
     /**
      * @property {string} signature - Unique signature for the access group.
@@ -56,8 +56,8 @@ export class AccessGroup implements IAccessGroup {
     /**
      * @constructor
      * @param {string} _id - Unique identifier for the access group.
-     * @param {Date} createdOn - The date when the access group was created.
-     * @param {Date} changedOn - The date when the access group was last modified.
+     * @param {Date} createdAt - The date when the access group was created.
+     * @param {Date} changedAt - The date when the access group was last modified.
      * @param {string} signature - Unique signature for the access group.
      * @param {string} name - Name of the access group.
      * @param {entityType.RecordtType} recordType - Record type associated with the access group.
@@ -67,8 +67,8 @@ export class AccessGroup implements IAccessGroup {
      */
     constructor(
         _id: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         name: string,
         recordType: entityType.RecordtType,
@@ -77,8 +77,8 @@ export class AccessGroup implements IAccessGroup {
         components: IComponentPermission[],
     ) {
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.name = name;
         this.recordType = recordType;

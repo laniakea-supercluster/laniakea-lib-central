@@ -1,4 +1,4 @@
-import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/domain/entity.type';
 import { PermissionType } from './permission-type.enum';
 
 export interface ICredentials {

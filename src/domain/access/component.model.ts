@@ -8,8 +8,8 @@ export class Component implements IComponent {
     moduleId: string;
     apis: IApiPermission[];
     permissions: ActionType[];
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     path: string;
     icon: string;
@@ -24,8 +24,8 @@ export class Component implements IComponent {
         moduleId: string,
         apis: IApiPermission[],
         permissions: ActionType[],
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         path: string,
         icon: string,
@@ -39,8 +39,8 @@ export class Component implements IComponent {
         this.moduleId = moduleId;
         this.apis = apis;
         this.permissions = permissions;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.path = path;
         this.icon = icon;

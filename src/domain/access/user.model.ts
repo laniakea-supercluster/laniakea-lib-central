@@ -1,4 +1,4 @@
-import * as entityType from '@atisiothings/laniakea-lib-core/dist/entity.type';
+import * as entityType from '@atisiothings/laniakea-lib-core/dist/domain/entity.type';
 import { IUser } from './access.type';
 import { AccessCondition } from './access.enum';
 import { OperatorType } from './operator-type.enum';
@@ -6,8 +6,8 @@ import { Person } from '../citizen/person.model';
 
 export class User extends Person implements IUser, entityType.IIdentifier<string>, entityType.ITrackable {
     readonly _id: string;
-    createdOn: Date;
-    changedOn: Date;
+    createdAt: Date;
+    changedAt: Date;
     signature: string;
     email: string;
     username: string;
@@ -24,8 +24,8 @@ export class User extends Person implements IUser, entityType.IIdentifier<string
         _id: string,
         name: string,
         surname: string,
-        createdOn: Date,
-        changedOn: Date,
+        createdAt: Date,
+        changedAt: Date,
         signature: string,
         email: string,
         username: string,
@@ -40,8 +40,8 @@ export class User extends Person implements IUser, entityType.IIdentifier<string
     ) {
         super(name, surname);
         this._id = _id;
-        this.createdOn = createdOn;
-        this.changedOn = changedOn;
+        this.createdAt = createdAt;
+        this.changedAt = changedAt;
         this.signature = signature;
         this.email = email;
         this.username = username;
